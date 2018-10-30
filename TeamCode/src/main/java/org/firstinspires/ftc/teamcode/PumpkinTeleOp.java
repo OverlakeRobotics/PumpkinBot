@@ -30,31 +30,13 @@ public class PumpkinTeleOp extends LinearOpMode {
         waitForStart();
 
         while(opModeIsActive()) {
-            while(controller.y.isPressed.value()) {
-                motorFR.setPower(1.0);
-                motorFL.setPower(1.0);
-                motorBL.setPower(1.0);
-                motorBR.setPower(1.0);
-            }
-            while(controller.a.isPressed.value()) {
-                motorFR.setPower(-1.0);
-                motorFL.setPower(-1.0);
-                motorBL.setPower(-1.0);
-                motorBR.setPower(-1.0);
-            }
-            while(controller.x.isPressed.value()) {
-                motorFR.setPower(1.0);
-                motorFL.setPower(-1.0);
-                motorBL.setPower(-1.0);
-                motorBR.setPower(1.0);
-            }
-            while(controller.b.isPressed.value()) {
-                motorFR.setPower(-1.0);
-                motorFL.setPower(1.0);
-                motorBL.setPower(1.0);
-                motorBR.setPower(-1.0);
-            }
+            double x = gamepad1.left_stick_x;
+            double y = gamepad1.left_stick_y;
+            motorFR.setPower(x + y);
+            motorFL.setPower(y - x);
+            motorBR.setPower(x + y);
+            motorFR.setPower(y - x);
         }
-
+        // I would like to acknowledge here that my code is like 25% the length of Adrian's code and it gives way more control over the robot
     }
 }
