@@ -1,4 +1,11 @@
 package Hardware.Controller;
 
-public class TriggerType {
+/**
+ * Created by EvanCoulson on 1/5/18.
+ */
+
+public enum TriggerType
+{
+    LEFT,
+    RIGHT,
 }
